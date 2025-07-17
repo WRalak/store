@@ -15,7 +15,7 @@ class ProductMailerTest < ActionMailer::TestCase
       mail.deliver_now
     end
 
-    assert_equal ["subscriber@example.com"], mail.to
+    assert_equal [ "subscriber@example.com" ], mail.to
     assert_equal "Sample Product is back in stock!", mail.subject
   end
 end

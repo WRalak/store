@@ -12,4 +12,3 @@ class ProductMailer < ApplicationMailer
     )
   end
 end
-
