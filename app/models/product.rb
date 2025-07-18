@@ -1,7 +1,4 @@
 class Product < ApplicationRecord
-  # REMOVE THIS LINE ⬇️
-  # include Product::Notifications
-
   has_many :subscribers, dependent: :destroy
   has_one_attached :featured_image
   has_rich_text :description
@@ -13,7 +10,7 @@ class Product < ApplicationRecord
   after_update_commit :notify_subscribers, if: :back_in_stock?
 
   def back_in_stock?
-    inventory_count_previously_was.zero? && inventory_count > 0
+    inventory_count_previously_was.to_i.zero? && inventory_count.to_i > 0
   end
 
   def notify_subscribers
